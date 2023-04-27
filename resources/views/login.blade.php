@@ -55,5 +55,5 @@
 @endsection
 
 @section('js')
-<script src="./../resources/js/vendors.bundle.js"></script>
+<script src="./public/js/vendors.bundle.js"></script>
 @endsection
