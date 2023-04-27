@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/test', function () {
-    return view('test');
+
+Route::post('/login', function (Request $request) {
+    dd($request);
+    dd($request->input('password'));
+});
+
+Route::get('users', function () {
+    return view('users');
 });

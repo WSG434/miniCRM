@@ -1,7 +1,7 @@
 @extends('layout')
 
 
-@section('loginLayout')
+@section('customLayout')
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <!-- Remove Tap Highlight on Windows Phone IE -->
 <meta name="msapplication-tap-highlight" content="no">
@@ -19,7 +19,6 @@
 
 @section('login')
 
-
 <div class="blankpage-form-field">
     <div class="page-logo m-0 w-100 align-items-center justify-content-center rounded border-bottom-left-radius-0 border-bottom-right-radius-0 px-4">
         <a href="javascript:void(0)" class="page-logo-link press-scale-down d-flex align-items-center">
@@ -32,14 +31,15 @@
         <div class="alert alert-success">
             Регистрация успешна
         </div>
-        <form action="">
+        <form action="/login" method="post">
+            {{csrf_field()}}
             <div class="form-group">
                 <label class="form-label" for="username">Email</label>
-                <input type="email" id="username" class="form-control" placeholder="Эл. адрес" value="">
+                <input type="email" id="username" name="email" class="form-control" placeholder="Эл. адрес" value="">
             </div>
             <div class="form-group">
                 <label class="form-label" for="password">Пароль</label>
-                <input type="password" id="password" class="form-control" placeholder="">
+                <input type="password" id="password" name="password" class="form-control" placeholder="">
             </div>
             <button type="submit" class="btn btn-default float-right">Войти</button>
         </form>
