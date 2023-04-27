@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('users');
 });
 
 Route::get('/register', function () {
@@ -25,13 +25,39 @@ Route::get('/register', function () {
 });
 
 
-Route::post('/login', function (Request $request) {
-    dd($request);
-    dd($request->input('password'));
+Route::post('/login_handler', function (Request $request) {
+    // dd($request);
+    // dd($request->input('password'));
+    return view('users');
 });
 
-Route::get('/users', function () {
-    return view('users');
+Route::post('/register_handler', function (Request $request) {
+    return view('login');
+});
+
+Route::post('/create_handler', function (Request $request) {
+    return view('/users');
+});
+
+Route::post('/edit_handler', function (Request $request) {
+    return view('/users');
+});
+
+Route::post('/media_handler', function (Request $request) {
+    return view('/users');
+});
+
+Route::post('/security_handler', function (Request $request) {
+    return view('/users');
+});
+
+Route::post('/status_handler', function (Request $request) {
+    return view('/users');
+});
+
+
+Route::get('/login', function () {
+    return view('login');
 });
 
 Route::get('/profile', function () {

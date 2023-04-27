@@ -8,7 +8,8 @@
     </h1>
 
   </div>
-  <form action="">
+  <form action="/media_handler" method="post">
+    {{csrf_field()}}
     <div class="row">
       <div class="col-xl-6">
         <div id="panel-1" class="panel">

@@ -13,7 +13,7 @@
   </div>
   <div class="row">
     <div class="col-xl-12">
-      <a class="btn btn-success" href="create_user.html">Добавить</a>
+      <a class="btn btn-success" href="/create">Добавить</a>
 
       <div class="border-faded bg-faded p-3 mb-g d-flex mt-3">
         <input type="text" id="js-filter-contacts" name="filter-contacts" class="form-control shadow-inset-2 form-control-lg" placeholder="Найти пользователя">
@@ -37,22 +37,23 @@
               <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-b.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
+              <a href="/profile" class="fs-xl text-truncate text-truncate-lg text-info">Oliver Kopyov</a>
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
-                Oliver Kopyov
                 <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                 <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
               </a>
+
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="edit.html">
+                <a class="dropdown-item" href="/edit">
                   <i class="fa fa-edit"></i>
                   Редактировать</a>
-                <a class="dropdown-item" href="security.html">
+                <a class="dropdown-item" href="/security">
                   <i class="fa fa-lock"></i>
                   Безопасность</a>
-                <a class="dropdown-item" href="status.html">
+                <a class="dropdown-item" href="/status">
                   <i class="fa fa-sun"></i>
                   Установить статус</a>
-                <a class="dropdown-item" href="media.html">
+                <a class="dropdown-item" href="/media">
                   <i class="fa fa-camera"></i>
                   Загрузить аватар
                 </a>

@@ -28,7 +28,7 @@
             <div class="height-10 w-100 shadow-lg px-4 bg-brand-gradient">
                 <div class="d-flex align-items-center container p-0">
                     <div class="page-logo width-mobile-auto m-0 align-items-center justify-content-center p-0 bg-transparent bg-img-none shadow-0 height-9 border-0">
-                        <a href="javascript:void(0)" class="page-logo-link press-scale-down d-flex align-items-center">
+                        <a href="/" class="page-logo-link press-scale-down d-flex align-items-center">
                             <img src="./public/img/logo.png" alt="SmartAdmin WebApp" aria-roledescription="logo">
                             <span class="page-logo-text mr-1">Учебный проект</span>
                         </a>
@@ -60,7 +60,8 @@
                                 <div class="alert alert-danger text-dark" role="alert">
                                     <strong>Уведомление!</strong> Этот эл. адрес уже занят другим пользователем.
                                 </div>
-                                <form id="js-login" novalidate="" action="">
+                                <form id="js-login" novalidate="" action="/register_handler" method="post">
+                                    {{csrf_field()}}
                                     <div class="form-group">
                                         <label class="form-label" for="emailverify">Email</label>
                                         <input type="email" id="emailverify" class="form-control" placeholder="Эл. адрес" required>

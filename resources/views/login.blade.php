@@ -31,7 +31,7 @@
         <div class="alert alert-success">
             Регистрация успешна
         </div>
-        <form action="/login" method="post">
+        <form action="login_handler" method="post">
             {{csrf_field()}}
             <div class="form-group">
                 <label class="form-label" for="username">Email</label>
