@@ -19,7 +19,7 @@
             </div>
             <div class="panel-content">
               <div class="form-group">
-                <img src="./public/img/demo/authors/josh.png" alt="" class="img-responsive" width="200">
+                <img src="img/demo/authors/josh.png" alt="" class="img-responsive" width="200">
               </div>
 
               <div class="form-group">
@@ -42,8 +42,8 @@
 
 
 @section('js')
-<script src="./public/js/vendors.bundle.js"></script>
-<script src="./public/js/app.bundle.js"></script>
+<script src="js/vendors.bundle.js"></script>
+<script src="js/app.bundle.js"></script>
 <script>
   $(document).ready(function() {
 

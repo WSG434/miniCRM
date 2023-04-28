@@ -22,4 +22,4 @@
 #</IfModule>
 RewriteEngine on
 RewriteCond %{REQUEST_URI} !^/public/index.php
-RewriteRule ^(.*)$ /public/index.php
+RewriteRule ^(.*)$ public/index.php

@@ -15,7 +15,7 @@
         <div class="row no-gutters row-grid">
           <div class="col-12">
             <div class="d-flex flex-column align-items-center justify-content-center p-4">
-              <img src="./public/img/demo/avatars/avatar-admin-lg.png" class="rounded-circle shadow-2 img-thumbnail" alt="">
+              <img src="img/demo/avatars/avatar-admin-lg.png" class="rounded-circle shadow-2 img-thumbnail" alt="">
               <h5 class="mb-0 fw-700 text-center mt-3">
                 Иван Иванов
                 <small class="text-muted mb-0">Toronto, Canada</small>
@@ -54,8 +54,8 @@
 
 
 @section('js')
-<script src="./public/js/vendors.bundle.js"></script>
-<script src="./public/js/app.bundle.js"></script>
+<script src="js/vendors.bundle.js"></script>
+<script src="js/app.bundle.js"></script>
 <script>
   $(document).ready(function() {
 

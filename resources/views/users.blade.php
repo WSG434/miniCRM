@@ -34,7 +34,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-b.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-b.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="/profile" class="fs-xl text-truncate text-truncate-lg text-info">Oliver Kopyov</a>
@@ -99,7 +99,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-warning mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-c.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-c.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -163,7 +163,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-danger mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-e.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-e.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -227,7 +227,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-k.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-k.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -291,7 +291,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-g.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-g.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -355,7 +355,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-h.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-h.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -419,7 +419,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-i.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-i.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -483,7 +483,7 @@
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
             <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('./public/img/demo/avatars/avatar-j.png'); background-size: cover;"></span>
+              <span class="rounded-circle profile-image d-block " style="background-image:url('img/demo/avatars/avatar-j.png'); background-size: cover;"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
@@ -563,8 +563,8 @@
 
 
 @section('js')
-<script src="./public/js/vendors.bundle.js"></script>
-<script src="./public/js/app.bundle.js"></script>
+<script src="js/vendors.bundle.js"></script>
+<script src="js/app.bundle.js"></script>
 <script>
   $(document).ready(function() {
 
