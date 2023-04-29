@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -32,7 +33,27 @@ Route::post('/login_handler', function (Request $request) {
 });
 
 Route::post('/register_handler', function (Request $request) {
-    return view('login');
+
+    $rules = [
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:3',
+    ];
+
+    $messages = [
+        'email.required' => 'Введите email',
+        'email.unique' => 'Такой email уже занят, придумайте другой',
+        'password.required' => 'Введите password, это обязательно',
+        'password.min' => 'Пароль слишком короткий, нужно минимум 3 символа'
+    ];
+
+    $request->validate($rules, $messages);
+
+    \App\Models\User::create([
+        'email' => $request->input('email'),
+        'password' => Hash::make($request->input('password'))
+    ]);
+
+    return redirect('/login')->with('success', 'Регистрация успешна');
 });
 
 Route::post('/create_handler', function (Request $request) {
@@ -85,15 +106,3 @@ Route::get('/edit', function () {
 Route::get('/create', function () {
     return view('/create_user');
 });
-
-
-// register +
-// login +
-// users +
-
-// create user +
-// edit +
-// user_media +
-// user_security +
-// user_status +
-// user_profile +

@@ -28,9 +28,11 @@
         </a>
     </div>
     <div class="card p-4 border-top-left-radius-0 border-top-right-radius-0">
-        <div class="alert alert-success">
-            Регистрация успешна
-        </div>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
         <form action="login_handler" method="post">
             {{csrf_field()}}
             <div class="form-group">
