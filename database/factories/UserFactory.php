@@ -17,12 +17,30 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $hash = md5(strtolower(trim(fake()->safeEmail())));
+        $gender=rand(0,1)?'men':'women';
+        $name = ($gender==='men')?fake()->firstNameMale():fake()->firstNameFemale();
+        $avatarUrl = 'https://randomuser.me/api/portraits/'.$gender.'/' . rand(0, 99) . '.jpg';
+        $vk ="https://vk.com/id" . fake()->numberBetween(700,800);
+        $tg ="https://t.me/" . $name;
+        $inst ="https://www.instagram.com/" . $name;
+
         return [
-            'name' => fake()->name(),
+            'username' => $name,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'avatar'=>$avatarUrl,
+            'status_id'=>fake()->numberBetween(1,5),
+            'job'=>fake()->jobTitle(),
+            'company'=>fake()->company(),
+            'phone'=>fake()->phoneNumber(),
+            'address'=>fake()->address(),
+            'country'=>fake()->country(),
+            'vk'=>$vk,
+            'tg'=>$tg,
+            'inst'=>$inst,
         ];
     }
 

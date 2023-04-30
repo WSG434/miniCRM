@@ -45,8 +45,8 @@
 @endsection
 
 @section ('js')
-<script src="js/vendors.bundle.js"></script>
-<script src="js/app.bundle.js"></script>
+<script src="/js/vendors.bundle.js"></script>
+<script src="/js/app.bundle.js"></script>
 <script>
   $(document).ready(function() {
 

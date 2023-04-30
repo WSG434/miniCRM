@@ -17,9 +17,16 @@ use Illuminate\Http\Request;
 |
 */
 
+
+Route::get('fake/', function(){
+   \App\Models\User::factory()->count(5)->create();
+   return redirect()->back();
+});
+
 //Route::middleware(['guest', 'admin'])->group(function () {
     Route::get('/', function () {
-        return view('users');
+        $users = User::all()->all();
+        return view('users', ['users'=>$users]);
     })->middleware('auth');
 //});
 
@@ -102,28 +109,33 @@ Route::get('/logout', function(){
    return redirect('/');
 })->middleware('auth');
 
-Route::get('/profile', function () {
+Route::get('/profile/{id}', function ($id) {
+    dd(User::find($id));
     return view('user_profile');
 })->middleware('auth');
 
-Route::get('/status', function () {
+Route::get('/status/{id}', function () {
     return view('user_status');
 })->middleware('auth');
 
-Route::get('/security', function () {
+Route::get('/security/{id}', function () {
     return view('/user_security');
 })->middleware('auth');
 
 
-Route::get('/user_media', function () {
+Route::get('/media/{id}', function () {
     return view('/user_media');
 })->middleware('auth');;
 
 
-Route::get('/edit', function () {
+Route::get('/edit/{id}', function () {
     return view('/edit');
 })->middleware('auth');
 
 Route::get('/create', function () {
     return view('/create_user');
+})->middleware('auth');
+
+Route::get('/delete/{id}', function () {
+    return redirect('/');
 })->middleware('auth');
