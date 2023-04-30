@@ -3,9 +3,11 @@
 
 @section('main')
 <main id="js-page-content" role="main" class="page-content mt-3">
-  <div class="alert alert-success">
-    Профиль успешно обновлен.
-  </div>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
   <div class="subheader">
     <h1 class="subheader-title">
       <i class='subheader-icon fal fa-users'></i> Список пользователей
@@ -53,7 +55,7 @@
                 <a class="dropdown-item" href="/status">
                   <i class="fa fa-sun"></i>
                   Установить статус</a>
-                <a class="dropdown-item" href="/media">
+                <a class="dropdown-item" href="/user_media">
                   <i class="fa fa-camera"></i>
                   Загрузить аватар
                 </a>
@@ -550,7 +552,7 @@
 <!-- BEGIN Page Footer -->
 <footer class="page-footer" role="contentinfo">
   <div class="d-flex align-items-center flex-1 text-muted">
-    <span class="hidden-md-down fw-700">2023 © Учебный проект</span>
+    <span class="hidden-md-down fw-700">2023 © miniCRM</span>
   </div>
   <div>
     <ul class="list-table m-0">

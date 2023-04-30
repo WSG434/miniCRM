@@ -17,19 +17,35 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('users');
-});
+//Route::middleware(['guest', 'admin'])->group(function () {
+    Route::get('/', function () {
+        return view('users');
+    })->middleware('auth');
+//});
+
 
 Route::get('/register', function () {
     return view('register');
-});
+})->middleware('guest');
 
 
 Route::post('/login_handler', function (Request $request) {
-    // dd($request);
-    // dd($request->input('password'));
-    return view('users');
+
+    $rules = [
+        'email' => 'required|string|email|max:255',
+        'password' => 'required|string|min:3',
+    ];
+
+    $credentials = $request->validate($rules);
+
+
+    if (\Illuminate\Support\Facades\Auth::attempt($credentials)){
+        return redirect('/');
+    }
+
+    return redirect()->back()->withErrors([
+        'email' => 'Неверные данные для входа',
+    ])->withInput($request->except('password'));
 });
 
 Route::post('/register_handler', function (Request $request) {
@@ -54,55 +70,60 @@ Route::post('/register_handler', function (Request $request) {
     ]);
 
     return redirect('/login')->with('success', 'Регистрация успешна');
-});
+})->middleware('guest');
 
 Route::post('/create_handler', function (Request $request) {
-    return view('/users');
-});
+    return redirect('/');
+})->middleware('auth');
 
 Route::post('/edit_handler', function (Request $request) {
-    return view('/users');
-});
+    return redirect('/');
+})->middleware('auth');
 
 Route::post('/media_handler', function (Request $request) {
-    return view('/users');
-});
+    return redirect('/');
+})->middleware('auth');
 
 Route::post('/security_handler', function (Request $request) {
-    return view('/users');
-});
+    return redirect('/');
+})->middleware('auth');
 
 Route::post('/status_handler', function (Request $request) {
-    return view('/users');
-});
+    return redirect('/');
+})->middleware('auth');
 
 
 Route::get('/login', function () {
     return view('login');
-});
+})->middleware('guest')->name('login');
+
+Route::get('/logout', function(){
+   \Illuminate\Support\Facades\Auth::logout();
+   return redirect('/');
+})->middleware('auth');
 
 Route::get('/profile', function () {
     return view('user_profile');
-});
+})->middleware('auth');
 
 Route::get('/status', function () {
     return view('user_status');
-});
+})->middleware('auth');
 
 Route::get('/security', function () {
     return view('/user_security');
-});
+})->middleware('auth');
 
 
-Route::get('/media', function () {
+Route::get('/user_media', function () {
     return view('/user_media');
-});
+})->middleware('auth');;
 
 
 Route::get('/edit', function () {
     return view('/edit');
-});
+})->middleware('auth');
 
 Route::get('/create', function () {
     return view('/create_user');
-});
+})->middleware('auth');

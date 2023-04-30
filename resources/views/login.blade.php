@@ -23,7 +23,7 @@
     <div class="page-logo m-0 w-100 align-items-center justify-content-center rounded border-bottom-left-radius-0 border-bottom-right-radius-0 px-4">
         <a href="javascript:void(0)" class="page-logo-link press-scale-down d-flex align-items-center">
             <img src="img/logo.png" alt="SmartAdmin WebApp" aria-roledescription="logo">
-            <span class="page-logo-text mr-1">Учебный проект</span>
+            <span class="page-logo-text mr-1">miniCRM</span>
             <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
         </a>
     </div>
@@ -33,11 +33,20 @@
                     {{ session('success') }}
                 </div>
             @endif
+            @if($errors->any())
+                <div class="alert alert-danger text-dark" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <form action="login_handler" method="post">
             {{csrf_field()}}
             <div class="form-group">
                 <label class="form-label" for="username">Email</label>
-                <input type="email" id="username" name="email" class="form-control" placeholder="Эл. адрес" value="">
+                <input type="email" id="username" name="email" class="form-control" placeholder="Эл. адрес" value="{{old("email")}}">
             </div>
             <div class="form-group">
                 <label class="form-label" for="password">Пароль</label>
