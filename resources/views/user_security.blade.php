@@ -6,8 +6,18 @@
     <h1 class="subheader-title">
       <i class='subheader-icon fal fa-lock'></i> Безопасность
     </h1>
-
   </div>
+
+    @if($errors->any())
+        <div class="alert alert-danger text-dark" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
   <form action="/security_handler" method="post">
     {{csrf_field()}}
     <div class="row">
@@ -18,22 +28,25 @@
               <h2>Обновление эл. адреса и пароля</h2>
             </div>
             <div class="panel-content">
-              <!-- email -->
+
+            <input type="hidden" id="simpleinput"  class="form-control" name="id" value="{{$user->id}}">
+
+            <!-- email -->
               <div class="form-group">
                 <label class="form-label" for="simpleinput">Email</label>
-                <input type="text" id="simpleinput" class="form-control" value="john@example.com">
+                <input type="text" id="simpleinput" class="form-control" name="email" value="{{$user->email}}">
               </div>
 
               <!-- password -->
               <div class="form-group">
                 <label class="form-label" for="simpleinput">Пароль</label>
-                <input type="password" id="simpleinput" class="form-control">
+                <input type="password" id="simpleinput" name="password" class="form-control">
               </div>
 
               <!-- password confirmation-->
               <div class="form-group">
                 <label class="form-label" for="simpleinput">Подтверждение пароля</label>
-                <input type="password" id="simpleinput" class="form-control">
+                <input type="password" id="simpleinput" name="password_confirmation" class="form-control">
               </div>
 
 

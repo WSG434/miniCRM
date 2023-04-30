@@ -1,5 +1,9 @@
 @extends ('mainLayout')
 
+@php
+$statuses = \App\Models\Status::all();
+@endphp
+
 @section ('main')
 <main id="js-page-content" role="main" class="page-content mt-3">
   <div class="subheader">
@@ -8,7 +12,7 @@
     </h1>
 
   </div>
-  <form action="status_handler" method="post">
+  <form action="/status_handler" method="post">
     {{csrf_field()}}
     <div class="row">
       <div class="col-xl-6">
@@ -22,11 +26,16 @@
                 <div class="col-md-4">
                   <!-- status -->
                   <div class="form-group">
-                    <label class="form-label" for="example-select">Выберите статус</label>
-                    <select class="form-control" id="example-select">
-                      <option>Онлайн</option>
-                      <option>Отошел</option>
-                      <option>Не беспокоить</option>
+                      <input type="hidden" id="simpleinput"  class="form-control" name="id" value="{{$user->id}}">
+                      <label class="form-label" for="example-select">Выберите статус</label>
+                    <select class="form-control" id="example-select" name="status">
+                        @foreach($statuses as $status)
+                            @if ($status->id===$user->status_id)
+                                <option selected>{{$status->title}}</option>
+                            @else
+                                <option>{{$status->title}}</option>
+                            @endif
+                        @endforeach
                     </select>
                   </div>
                 </div>

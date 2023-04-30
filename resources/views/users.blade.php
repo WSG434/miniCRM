@@ -8,6 +8,15 @@
             {{ session('success') }}
         </div>
     @endif
+    @if($errors->any())
+        <div class="alert alert-danger text-dark" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
   <div class="subheader">
     <h1 class="subheader-title">
       <i class='subheader-icon fal fa-users'></i> Список пользователей
@@ -17,8 +26,6 @@
     <div class="col-xl-12">
       <a class="btn btn-success" href="/create">Добавить</a>
       <a class="btn btn-success" href="/fake">Сгенерировать еще пользователей</a>
-
-
         <div class="border-faded bg-faded p-3 mb-g d-flex mt-3">
         <input type="text" id="js-filter-contacts" name="filter-contacts" class="form-control shadow-inset-2 form-control-lg" placeholder="Найти пользователя">
         <div class="btn-group btn-group-lg btn-group-toggle hidden-lg-down ml-3" data-toggle="buttons">
@@ -35,11 +42,11 @@
   <div class="row" id="js-contacts">
   @foreach($users as $user)
     <div class="col-xl-4">
-      <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="oliver kopyov">
+      <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="{{$user['username']}}">
         <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
           <div class="d-flex flex-row align-items-center">
-            <span class="status status-success mr-3">
-              <span class="rounded-circle profile-image d-block " style="background-image:url('{{$user['avatar']}}'); background-size: cover;"></span>
+            <span class="status {{$user->status->handler}} mr-3" title="{{$user->status->title}}">
+              <span class="rounded-circle profile-image d-block " style="background-image:url('{{$user['avatar']}}'); background-size: cover;" title="{{$user->username}}"></span>
             </span>
             <div class="info-card-text flex-1">
               <a href="/profile/{{$user['id']}}" class="fs-xl text-truncate text-truncate-lg text-info">{{$user['username']}}</a>

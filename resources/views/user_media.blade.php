@@ -8,7 +8,7 @@
     </h1>
 
   </div>
-  <form action="/media_handler" method="post">
+  <form action="/media_handler" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <div class="row">
       <div class="col-xl-6">
@@ -19,12 +19,15 @@
             </div>
             <div class="panel-content">
               <div class="form-group">
-                <img src="/img/demo/authors/josh.png" alt="" class="img-responsive" width="200">
+                <img src="{{$user->avatar}}" class="rounded-circle d-block img-responsive" alt="" width="200">
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="example-fileinput">Выберите аватар</label>
-                <input type="file" id="example-fileinput" class="form-control-file">
+                  <input type="hidden" id="simpleinput"  class="form-control" name="id" value="{{$user->id}}">
+
+
+                  <label class="form-label" for="example-fileinput">Выберите аватар</label>
+                <input type="file" name="image" id="example-fileinput" class="form-control-file">
               </div>
 
 

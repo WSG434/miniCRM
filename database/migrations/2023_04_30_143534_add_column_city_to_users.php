@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_statuses', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('handler');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('city')->nullable();
+
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_statuses');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('city');
+        });
     }
 };
