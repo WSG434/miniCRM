@@ -1,5 +1,15 @@
 @extends ('mainLayout')
 
+@section('permission')
+    @php
+        use Illuminate\Support\Facades\Auth;
+        if (!(Auth::user()->id===$user->id || Auth::user()->hasRole('admin'))){
+           header("Location: /");
+           die();
+        }
+    @endphp
+@endsection
+
 @section ('main')
 <main id="js-page-content" role="main" class="page-content mt-3">
   <div class="subheader">

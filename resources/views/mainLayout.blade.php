@@ -42,6 +42,8 @@
     </div>
   </nav>
 
+  {{--permission for edit php--}}
+  @yield('permission')
 
   {{--main--}}
   @yield('main')

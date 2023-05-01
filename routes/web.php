@@ -20,10 +20,12 @@ use Illuminate\Validation\Rule;
 */
 
 
-Route::get('fake/', function(){
+Route::get('/fake', function(){
    \App\Models\User::factory()->count(5)->create();
    return redirect()->back();
 });
+
+
 
 //Route::middleware(['guest', 'admin'])->group(function () {
     Route::get('/', function () {
@@ -56,6 +58,8 @@ Route::post('/login_handler', function (Request $request) {
         'email' => 'Неверные данные для входа',
     ])->withInput($request->except('password'));
 });
+
+
 
 Route::post('/register_handler', function (Request $request) {
 

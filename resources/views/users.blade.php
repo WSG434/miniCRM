@@ -24,8 +24,11 @@
   </div>
   <div class="row">
     <div class="col-xl-12">
-      <a class="btn btn-success" href="/create">Добавить</a>
-      <a class="btn btn-success" href="/fake">Сгенерировать еще пользователей</a>
+      @if (\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+          <a class="btn btn-success" href="/create">Добавить</a>
+          <a class="btn btn-success" href="/fake">Сгенерировать еще пользователей</a>
+      @endif
+
         <div class="border-faded bg-faded p-3 mb-g d-flex mt-3">
         <input type="text" id="js-filter-contacts" name="filter-contacts" class="form-control shadow-inset-2 form-control-lg" placeholder="Найти пользователя">
         <div class="btn-group btn-group-lg btn-group-toggle hidden-lg-down ml-3" data-toggle="buttons">
@@ -50,10 +53,14 @@
             </span>
             <div class="info-card-text flex-1">
               <a href="/profile/{{$user['id']}}" class="fs-xl text-truncate text-truncate-lg text-info">{{$user['username']}}</a>
-              <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
+
+
+            @if (\Illuminate\Support\Facades\Auth::user()->hasRole('admin') || $user->id === \Illuminate\Support\Facades\Auth::user()->id)
+
+            <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
                 <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                 <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
-              </a>
+            </a>
 
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/edit/{{$user['id']}}">
@@ -74,6 +81,9 @@
                   Удалить
                 </a>
               </div>
+
+            @endif
+
               <span class="text-truncate text-truncate-xl">{{$user['job']}}, {{$user['company']}}</span>
             </div>
             <button class="js-expand-btn btn btn-sm btn-default d-none" data-toggle="collapse" data-target="#c_1 > .card-body + .card-body" aria-expanded="false">
