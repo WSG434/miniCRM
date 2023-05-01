@@ -156,7 +156,10 @@ Route::post('/media_handler', function (Request $request) {
     $image = $request->file('image');
     $filename = $image->store('/uploads');
 
-    \App\Models\User::find($request->id)->update([
+    $user =\App\Models\User::find($request->id);
+    Storage::delete($user->avatar);
+
+    $user->update([
        'avatar'=>"/".$filename,
     ]);
 
