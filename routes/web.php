@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -27,36 +28,23 @@ Route::get('/fake', [MainController::class, 'fake']);
     Route::get('/', [MainController::class,'index'])->middleware('auth');
 //});
 
-Route::get('/register', [MainController::class,'register'])->middleware('guest');
 
-Route::post('/login_handler', [MainController::class,'login_handler'])->middleware('guest');;
-
-Route::post('/register_handler', [MainController::class, 'register_handler'])->middleware('guest');
-
-Route::post('/create_handler', [MainController::class, 'create_handler'])->middleware('auth');
-
-Route::post('/edit_handler', [MainController::class, 'edit_handler'])->middleware('auth');
-
-Route::post('/media_handler', [MainController::class, 'media_handler'])->middleware('auth');
-
-Route::post('/security_handler', [MainController::class, 'security_handler'] )->middleware('auth');
-
-Route::post('/status_handler', [MainController::class, 'status_handler'])->middleware('auth');
-
-Route::get('/login', [MainController::class, 'login'])->middleware('guest')->name('login');
-
+Route::get('/register', [MainController::class,'register_view'])->middleware('guest');
+Route::get('/login', [MainController::class, 'login_view'])->middleware('guest')->name('login');
 Route::get('/logout', [MainController::class, 'logout'])->middleware('auth');
 
-Route::get('/profile/{id}', [MainController::class,'show_profile'])->middleware('auth');
+Route::get('/profile/{id}', [UserController::class,'show_profile'])->middleware('auth');
+Route::get('/status/{id}', [UserController::class,'edit_status_view'])->middleware('auth');
+Route::get('/security/{id}', [UserController::class, 'edit_security_view'])->middleware('auth');
+Route::get('/media/{id}', [UserController::class, 'edit_media_view'])->middleware('auth');;
+Route::get('/edit/{id}', [UserController::class, 'edit_userinfo_view'])->middleware('auth');
+Route::get('/create', [UserController::class, 'create_user_view'])->middleware('auth');
+Route::get('/delete/{id}', [UserController::class, 'delete_user'])->middleware('auth');
 
-Route::get('/status/{id}', [MainController::class,'edit_status'])->middleware('auth');
-
-Route::get('/security/{id}', [MainController::class, 'edit_security'])->middleware('auth');
-
-Route::get('/media/{id}', [MainController::class, 'edit_media'])->middleware('auth');;
-
-Route::get('/edit/{id}', [MainController::class, 'edit_userinfo'])->middleware('auth');
-
-Route::get('/create', [MainController::class, 'create_user'])->middleware('auth');
-
-Route::get('/delete/{id}', [MainController::class, 'delete_user'])->middleware('auth');
+Route::post('/login_handler', [MainController::class,'login_handler'])->middleware('guest');;
+Route::post('/register_handler', [MainController::class, 'register_handler'])->middleware('guest');
+Route::post('/create_handler', [UserController::class, 'create_handler'])->middleware('auth');
+Route::post('/edit_handler', [UserController::class, 'edit_handler'])->middleware('auth');
+Route::post('/media_handler', [UserController::class, 'media_handler'])->middleware('auth');
+Route::post('/security_handler', [UserController::class, 'security_handler'] )->middleware('auth');
+Route::post('/status_handler', [UserController::class, 'status_handler'])->middleware('auth');

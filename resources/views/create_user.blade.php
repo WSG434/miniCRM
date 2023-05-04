@@ -1,9 +1,13 @@
 @extends ('mainLayout')
 
+@php
+    $statuses = \App\Models\Status::all();
+@endphp
+
 @section('permission')
     @php
         use Illuminate\Support\Facades\Auth;
-        if (!(Auth::user()->id===$user->id || Auth::user()->hasRole('admin'))){
+        if (!(Auth::user() || Auth::user()->hasRole('admin'))){
            header("Location: /");
            die();
         }
@@ -115,9 +119,9 @@
               <div class="form-group">
                 <label class="form-label" for="example-select">Выберите статус</label>
                 <select class="form-control" id="example-select" name="status">
-                  <option>Онлайн</option>
-                  <option>Отошел</option>
-                  <option>Не беспокоить</option>
+                    @foreach($statuses as $status)
+                            <option>{{$status->title}}</option>
+                    @endforeach
                 </select>
               </div>
 
